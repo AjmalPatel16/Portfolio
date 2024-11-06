@@ -54,5 +54,5 @@ This project is standalone and doesn't require any external libraries or depende
 Feel free to connect with me via:
 
 Email: patelajmal04@gmail.com
-GitHub: AjmalPatel16
-LinkedIn: Mohammed Ajmal Patel
+GitHub:  AjmalPatel16
+LinkedIn:  Mohammed Ajmal Patel
