@@ -13,7 +13,10 @@
     <header class="header">
         <nav>
             <a href="#home" class="logo">Mohammed Ajmal Patel</a>
-            <ul class="nav-links">
+            <div class="hamburger-menu" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -31,7 +34,7 @@
                     <img src="images/image.png" alt="Mohammed Ajmal Patel" class="profile-photo">
                 </div>
                 <h1>Mohammed Ajmal Patel</h1>
-                <p>I am a <span class="typing-effect"></span></p>
+                <p>I am <span id="article-js">a</span> <span class="typing-effect"></span></p>
                 <div class="social-links-hero">
                     <a href="https://www.linkedin.com/in/mohammed-ajmal-patel-917b42289" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                     <a href="https://github.com/AjmalPatel16" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -119,29 +122,132 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="skills" class="content-section-alt">
             <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-item"><i class="fab fa-python"></i><span>Python</span></div>
-                <div class="skill-item"><i class="fas fa-database"></i><span>SQL</span></div>
-                <div class="skill-item"><i class="fas fa-calculator"></i><span>Statistics</span></div>
-                <div class="skill-item"><i class="fas fa-robot"></i><span>Machine Learning</span></div>
-                <div class="skill-item"><i class="fas fa-code"></i><span>Scala</span></div>
-                <div class="skill-item"><i class="fas fa-file-excel"></i><span>Excel & VBA</span></div>
-                <div class="skill-item"><i class="fas fa-cogs"></i><span>Pandas & NumPy</span></div>
-                <div class="skill-item"><i class="fas fa-paint-brush"></i><span>Matplotlib & Seaborn</span></div>
-                <div class="skill-item"><i class="fas fa-brain"></i><span>Scikit-Learn</span></div>
-                <div class="skill-item"><i class="fas fa-network-wired"></i><span>TensorFlow / PyTorch</span></div>
-                <div class="skill-item"><i class="fas fa-chart-bar"></i><span>Power BI</span></div>
-                <div class="skill-item"><i class="fas fa-file-excel"></i><span>Excel & VBA</span></div>
-                <div class="skill-item"><i class="fas fa-server"></i><span>Hadoop</span></div>
-                <div class="skill-item"><i class="fas fa-leaf"></i><span>MongoDB</span></div>
-                <div class="skill-item"><i class="fas fa-server"></i><span>MYSQL</span></div>
-                <div class="skill-item"><i class="fas fa-comment-dots"></i><span>NLP</span></div>
-                <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git & GitHub</span></div>
-               
+            <p class="skills-intro">Hover over a card to see the technologies I use.</p>
+            <div class="skill-deck-grid">
                 
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <i class="fas fa-database"></i>
+                            <h3>Programming & Databases</h3>
+                        </div>
+                        <div class="skill-card-back">
+                            <ul>
+                                <li>Python</li>
+                                <li>SQL (PostgreSQL, MySQL)</li>
+                                <li>VBA</li>
+                                <li>MongoDB</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <i class="fab fa-python"></i>
+                            <h3>Python Libraries</h3>
+                        </div>
+                        <div class="skill-card-back">
+                            <ul>
+                                <li>Pandas & NumPy</li>
+                                <li>Scikit-Learn & Statsmodels</li>
+                                <li>Matplotlib & Seaborn</li>
+                                <li>Streamlit & Plotly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <i class="fas fa-robot"></i>
+                            <h3>Machine Learning</h3>
+                        </div>
+                        <div class="skill-card-back">
+                            <ul>
+                                <li>Supervised & Unsupervised Learning</li>
+                                <li>Ensemble Methods (XGBoost)</li>
+                                <li>Feature Engineering</li>
+                                <li>Time Series Analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <i class="fas fa-chart-line"></i>
+                            <h3>Statistics</h3>
+                        </div>
+                        <div class="skill-card-back">
+                            <ul>
+                                <li>Hypothesis Testing & A/B Testing</li>
+                                <li>Probability & Distributions</li>
+                                <li>Descriptive & Inferential Stats</li>
+                                <li>Regression & ANOVA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <i class="fas fa-comment-dots"></i>
+                            <h3>Natural Language Processing</h3>
+                        </div>
+                        <div class="skill-card-back">
+                             <ul>
+                                <li>Sentiment Analysis & NER</li>
+                                <li>Text Summarization</li>
+                                <li>Stemming & Lemmatization</li>
+                                <li>Bag-of-Words & Word Embeddings</li>
+                                <li>Libraries: SpaCy & NLTK</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <i class="fas fa-chart-bar"></i>
+                            <h3>BI & Visualization Tools</h3>
+                        </div>
+                        <div class="skill-card-back">
+                            <ul>
+                                <li>Power BI</li>
+                                <li>Excel</li>
+                                <li>ETL Processes</li>
+                                <li>Data Mining</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-card-inner">
+                        <div class="skill-card-front">
+                            <i class="fas fa-tools"></i>
+                            <h3>Developer & Data Tools</h3>
+                        </div>
+                        <div class="skill-card-back">
+                            <ul>
+                                <li>Git & GitHub</li>
+                                <li>Jupyter Notebooks</li>
+                                <li>VS Code</li>
+                                <li>Agile Methodologies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -184,15 +290,53 @@
     </footer>
     
     <script>
-        // Typing effect script
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Typing effect script - WITH SMART "A/AN" LOGIC
         document.addEventListener('DOMContentLoaded', function() {
+            // We've slightly rephrased these to be nouns
+            const phrases = [
+                'Data Analyst.',
+                'Collaborative Team Player.',
+                'Enthusiastic Lifelong Learner.',
+                'Explorer of Complex Data Puzzles.',
+                'Solver of Problems with Code & Logic.'
+            ];
+
             var typed = new Typed('.typing-effect', {
-                strings: ['Data Analyst.', 'Data Scientist.', 'Business Intelligence Enthusiast.', 'Problem Solver.'],
+                strings: phrases,
                 typeSpeed: 70,
                 backSpeed: 50,
-                loop: true
+                loop: true,
+                // This new function runs before each string is typed
+                preStringTyped: function(arrayPos, self) {
+                    const currentString = self.strings[arrayPos];
+                    const articleSpan = document.getElementById('article-js');
+                    const firstLetter = currentString.charAt(0).toLowerCase();
+                    
+                    if (['a', 'e', 'i', 'o', 'u'].includes(firstLetter)) {
+                        articleSpan.textContent = 'an';
+                    } else {
+                        articleSpan.textContent = 'a';
+                    }
+                }
             });
         });
     </script>
+</body>
+</html>
 </body>
 </html>

@@ -311,42 +311,87 @@ nav {
     font-weight: 600;
 }
 
-/* --- Skills Section --- */
-.skills-grid {
+/* --- New Interactive Skill Deck Styles --- */
+
+.skills-intro {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.skill-deck-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    max-width: 900px;
-    margin: 50px auto 0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background-color: transparent;
+    height: 200px;
+    perspective: 1000px; /* Needed for 3D effect */
+    border-radius: 10px;
+}
+
+.skill-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover .skill-card-inner {
+    transform: rotateY(180deg);
+}
+
+.skill-card-front, .skill-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.skill-card-front {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.skill-card-front i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.skill-card-front h3 {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+.skill-card-back {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.skill-card-back ul {
+    list-style: none;
+    padding: 0;
     text-align: center;
 }
 
-.skill-item {
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: 8px;
-    transition: var(--transition-speed);
-}
-
-.skill-item:hover {
-    transform: translateY(-5px);
-    background-color: var(--primary-color);
-}
-.skill-item:hover i, .skill-item:hover span {
-    color: #fff;
-}
-
-.skill-item i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
-    transition: var(--transition-speed);
-}
-
-.skill-item span {
-    display: block;
-    font-weight: 600;
-    transition: var(--transition-speed);
+.skill-card-back li {
+    font-size: 1rem;
+    padding: 5px 0;
 }
 
 /* --- Education & Certifications Section --- */
@@ -433,30 +478,76 @@ footer {
     font-size: 0.9rem;
 }
 
+/* --- Hamburger Menu Icon (Initially Hidden) --- */
+.hamburger-menu {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
+    /* --- Navigation for Mobile --- */
     .nav-links {
-        display: none; /* Add a hamburger menu in JS if needed */
+        position: absolute;
+        top: 75px; /* Height of the header */
+        left: 0;
+        background-color: var(--secondary-color);
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
     }
 
-    .hero-content h1 {
-        font-size: 2.8rem;
+    .nav-links.active {
+        max-height: 500px; /* A large enough value to show all links */
     }
 
-    .hero-content p {
-        font-size: 1.3rem;
+    .nav-links li {
+        padding: 15px 0;
     }
 
-    h2 {
-        font-size: 2rem;
+    .hamburger-menu {
+        display: block; /* Show the hamburger icon on mobile */
     }
 
+    /* --- General Mobile Layout Adjustments --- */
     .content-section, .content-section-alt {
         padding: 80px 5%;
     }
 
-    .education-certification-container {
-        flex-direction: column;
-        gap: 40px;
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    /* --- Hero Section for Mobile --- */
+    .hero-section {
+        padding-top: 100px;
+    }
+
+    .profile-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    /* --- Projects Section for Mobile --- */
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
