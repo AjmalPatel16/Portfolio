@@ -1,364 +1,671 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Ajmal Patel | Data Scientist & Analyst Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed Ajmal Patel | Data Analyst & Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+:root{
+  --bg:#0e1117;
+  --bg2:#141720;
+  --bg3:#1c2030;
+  --bg4:#232840;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.13);
+  --text:#e8eaf0;
+  --text2:#9aa3b8;
+  --text3:#5a6380;
+  --accent:#4f9cf9;
+  --accent2:#38d9a9;
+  --accent-glow:rgba(79,156,249,0.15);
+  --accent2-glow:rgba(56,217,169,0.12);
+  --sans:'DM Sans',sans-serif;
+  --display:'Syne',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --r:12px;
+  --max:980px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:16px;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s}
+.nav.scrolled{background:rgba(14,17,23,0.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:14px 48px}
+.nav-logo{font-family:var(--display);font-size:20px;font-weight:800;color:var(--text);letter-spacing:-0.01em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:36px}
+.nav-links a{color:var(--text2);font-size:13px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:var(--accent);transition:width 0.3s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+.hamburger{display:none;background:none;border:none;cursor:pointer;color:var(--text);font-size:20px;padding:4px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,black,transparent);mask-image:radial-gradient(ellipse 70% 70% at 50% 40%,black,transparent)}
+.hero-glow1{position:absolute;top:10%;left:15%;width:500px;height:500px;background:radial-gradient(circle,rgba(79,156,249,0.08),transparent 70%);pointer-events:none}
+.hero-glow2{position:absolute;bottom:10%;right:15%;width:400px;height:400px;background:radial-gradient(circle,rgba(56,217,169,0.06),transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:var(--max);width:100%;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center}
+.hero-label{font-family:var(--mono);font-size:11px;color:var(--accent2);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0;animation:fadeUp 0.5s ease 0.1s forwards}
+.hero-label::before{content:'';width:28px;height:1.5px;background:var(--accent2)}
+.hero h1{font-family:var(--display);font-size:clamp(44px,6vw,76px);font-weight:800;line-height:1.05;letter-spacing:-0.02em;color:var(--text);margin-bottom:20px;opacity:0;animation:fadeUp 0.6s ease 0.2s forwards}
+.hero h1 .accent{color:var(--accent)}
+.hero-typing-line{font-size:18px;color:var(--text2);margin-bottom:28px;min-height:30px;opacity:0;animation:fadeUp 0.6s ease 0.35s forwards}
+.typed-text{color:var(--accent2);font-weight:500}
+.typing-cursor{display:inline-block;width:2px;height:1em;background:var(--accent2);margin-left:2px;vertical-align:text-bottom;animation:blink 0.85s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-desc{font-size:15px;color:var(--text2);max-width:500px;line-height:1.85;margin-bottom:40px;opacity:0;animation:fadeUp 0.6s ease 0.45s forwards}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.6s ease 0.55s forwards}
+.btn-primary{padding:13px 30px;background:var(--accent);color:#fff;border-radius:var(--r);font-family:var(--sans);font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
+.btn-primary:hover{background:#3a88f0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(79,156,249,0.35)}
+.btn-outline{padding:13px 30px;background:transparent;color:var(--text);border:1.5px solid var(--border2);border-radius:var(--r);font-family:var(--sans);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-socials{display:flex;gap:12px;margin-top:44px;opacity:0;animation:fadeUp 0.6s ease 0.7s forwards}
+.hero-socials a{width:40px;height:40px;border:1.5px solid var(--border2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:15px;background:var(--bg2);transition:all 0.2s}
+.hero-socials a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-glow);transform:translateY(-2px)}
+.hero-photo{position:relative;opacity:0;animation:fadeUp 0.8s ease 0.3s forwards;flex-shrink:0}
+.hero-photo img{width:260px;height:300px;object-fit:cover;object-position:top;border-radius:20px;display:block;border:2px solid var(--border2)}
+.hero-photo::before{content:'';position:absolute;inset:-8px;border:1.5px solid var(--accent);border-radius:24px;opacity:0.3;pointer-events:none}
+
+/* SECTIONS */
+section{padding:96px 48px}
+.container{max-width:var(--max);margin:0 auto}
+.sec-eyebrow{font-family:var(--mono);font-size:11px;color:var(--accent2);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-eyebrow::before{content:'';width:24px;height:1.5px;background:var(--accent2)}
+.sec-title{font-family:var(--display);font-size:clamp(28px,4vw,42px);font-weight:800;color:var(--text);margin-bottom:52px;line-height:1.15;letter-spacing:-0.02em}
+.sec-title .hi{color:var(--accent)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
+.about-text p{font-size:15px;color:var(--text2);margin-bottom:18px;line-height:1.85}
+.about-pull{background:var(--bg3);border-left:3px solid var(--accent2);border-radius:0 10px 10px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--text);font-style:italic}
+.stat-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:20px;transition:all 0.25s;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.stat-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.stat-card:hover::before{transform:scaleX(1)}
+.stat-card .n{font-family:var(--display);font-size:32px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:6px}
+.stat-card .l{font-size:12px;color:var(--text2);font-weight:500}
+
+/* EXPERIENCE */
+.exp-section{background:var(--bg2)}
+.exp-wrap{display:flex;flex-direction:column;border-left:2px solid var(--border2);margin-left:8px}
+.exp-item{position:relative;padding:0 0 44px 40px}
+.exp-item:last-child{padding-bottom:0}
+.exp-dot{position:absolute;left:-9px;top:5px;width:16px;height:16px;border-radius:50%;background:var(--bg2);border:2.5px solid var(--accent);transition:background 0.3s}
+.exp-item:hover .exp-dot{background:var(--accent)}
+.exp-date{font-family:var(--mono);font-size:11px;color:var(--accent2);margin-bottom:6px}
+.exp-role{font-family:var(--display);font-size:19px;font-weight:700;color:var(--text);margin-bottom:3px;letter-spacing:-0.01em}
+.exp-company{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:3px}
+.exp-loc{font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:14px}
+.exp-bullets li{font-size:14px;color:var(--text2);padding:4px 0 4px 18px;position:relative;line-height:1.65}
+.exp-bullets li::before{content:'►';position:absolute;left:0;color:var(--accent2);font-size:11px;top:6px}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proj-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:18px;padding:26px;display:flex;flex-direction:column;transition:all 0.3s;position:relative;overflow:hidden}
+.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent-glow),transparent 60%);opacity:0;transition:opacity 0.3s}
+.proj-card:hover{border-color:rgba(79,156,249,0.4);transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.3)}
+.proj-card:hover::before{opacity:1}
+.proj-num{font-family:var(--display);font-size:38px;font-weight:800;color:var(--border2);line-height:1;margin-bottom:14px;transition:color 0.3s;position:relative}
+.proj-card:hover .proj-num{color:rgba(79,156,249,0.25)}
+.proj-card h3{font-family:var(--display);font-size:15px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.4;letter-spacing:-0.01em;position:relative}
+.proj-card p{font-size:13px;color:var(--text2);line-height:1.75;flex:1;margin-bottom:18px;position:relative}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;position:relative}
+.proj-tags span{font-family:var(--mono);font-size:10px;color:var(--accent2);background:var(--accent2-glow);border:1px solid rgba(56,217,169,0.2);border-radius:4px;padding:3px 9px}
+
+/* SKILLS */
+.skills-section{background:var(--bg2)}
+.skills-layout{display:flex;flex-direction:column;gap:16px}
+.skill-row{background:var(--bg3);border:1.5px solid var(--border);border-radius:16px;padding:22px 28px;display:grid;grid-template-columns:190px 1fr;gap:24px;align-items:center;transition:all 0.25s;position:relative;overflow:hidden}
+.skill-row::after{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.3s}
+.skill-row:hover{border-color:var(--border2);background:var(--bg4)}
+.skill-row:hover::after{opacity:1}
+.skill-row-label{display:flex;align-items:center;gap:12px}
+.skill-row-icon{width:38px;height:38px;background:var(--accent-glow);border:1px solid rgba(79,156,249,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:15px;flex-shrink:0;transition:all 0.25s}
+.skill-row:hover .skill-row-icon{background:rgba(79,156,249,0.2);border-color:rgba(79,156,249,0.4)}
+.skill-row-name{font-family:var(--display);font-size:13px;font-weight:700;color:var(--text);letter-spacing:-0.01em;line-height:1.3}
+.skill-pills{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pill{font-family:var(--mono);font-size:11px;color:var(--text2);background:var(--bg);border:1px solid var(--border2);border-radius:6px;padding:5px 12px;transition:all 0.2s;cursor:default;line-height:1.4}
+.skill-pill:hover{border-color:var(--accent2);color:var(--accent2);background:var(--accent2-glow)}
+
+/* EDUCATION */
+.edu-cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.edu-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:18px;padding:30px;position:relative;overflow:hidden}
+.edu-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.edu-degree{font-family:var(--display);font-size:19px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.3;letter-spacing:-0.01em}
+.edu-school{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:5px}
+.edu-meta{font-family:var(--mono);font-size:11px;color:var(--text3);margin-bottom:18px}
+.edu-cgpa{display:inline-flex;align-items:baseline;gap:6px;background:var(--accent-glow);border:1.5px solid rgba(79,156,249,0.25);border-radius:8px;padding:8px 16px}
+.edu-cgpa .n{font-family:var(--display);font-size:26px;font-weight:800;color:var(--accent);line-height:1}
+.edu-cgpa .l{font-size:11px;color:var(--text2)}
+.cert-list{display:flex;flex-direction:column;gap:10px}
+.cert-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;font-size:13px;color:var(--text2);transition:all 0.2s}
+.cert-item:hover{border-color:var(--accent2);color:var(--text);background:var(--bg3)}
+.cert-item i{color:var(--accent2);font-size:13px;flex-shrink:0;width:16px;text-align:center}
+
+/* CONTACT */
+.contact-section{background:var(--bg)}
+.contact-wrap{max-width:700px;margin:0 auto;text-align:center}
+.contact-wrap .sec-eyebrow{justify-content:center}
+.contact-wrap .sec-eyebrow::before{display:none}
+.contact-desc{font-size:15px;color:var(--text2);max-width:480px;margin:0 auto 48px;line-height:1.8}
+.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px}
+.contact-card{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;transition:all 0.25s;text-align:left;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));transform:scaleX(0);transform-origin:left;transition:transform 0.3s}
+.contact-card:hover{border-color:var(--border2);transform:translateY(-3px);background:var(--bg3);box-shadow:0 12px 30px rgba(0,0,0,0.25)}
+.contact-card:hover::before{transform:scaleX(1)}
+.contact-card-icon{width:42px;height:42px;border-radius:10px;background:var(--accent-glow);border:1px solid rgba(79,156,249,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--accent);flex-shrink:0}
+.contact-card-body strong{display:block;font-family:var(--display);font-size:11px;font-weight:700;color:var(--text);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px}
+.contact-card-body span{font-family:var(--mono);font-size:11px;color:var(--text2);word-break:break-all}
+.contact-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:22px 48px;display:flex;align-items:center;justify-content:space-between}
+footer p{font-family:var(--mono);font-size:11px;color:var(--text3)}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-family:var(--mono);font-size:11px;color:var(--text3);transition:color 0.2s}
+.foot-links a:hover{color:var(--accent)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav{padding:14px 24px}
+  .nav.scrolled{padding:10px 24px}
+  .nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:24px;gap:20px}
+  .nav-links.open{display:flex}
+  .hamburger{display:block}
+  section{padding:64px 24px}
+  .hero{padding:100px 24px 64px}
+  .hero-content{grid-template-columns:1fr}
+  .hero-photo{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .skill-row{grid-template-columns:1fr;gap:14px}
+  .projects-grid{grid-template-columns:1fr 1fr}
+  .edu-cert-grid{grid-template-columns:1fr}
+  .contact-cards{grid-template-columns:1fr}
+  footer{padding:16px 24px;flex-direction:column;gap:10px;text-align:center}
+}
+@media(max-width:560px){
+  .projects-grid{grid-template-columns:1fr}
+  .stat-cards{grid-template-columns:1fr 1fr}
+  .contact-cta{flex-direction:column;align-items:stretch}
+}
+</style>
 </head>
 <body>
 
-    <header class="header">
-        <nav>
-            <a href="#home" class="logo">Mohammed Ajmal Patel</a>
-            <div class="hamburger-menu" id="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">Ajmal<span>.</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <main>
-        <section id="home" class="hero-section">
-            <div class="hero-content">
-                <div class="profile-photo-container">
-                    <img src="images/image.png" alt="Mohammed Ajmal Patel" class="profile-photo">
-                </div>
-                <h1>Mohammed Ajmal Patel</h1>
-                <p>I am <span id="article-js">a</span> <span class="typing-effect"></span></p>
-                <div class="social-links-hero">
-                    <a href="https://www.linkedin.com/in/mohammed-ajmal-patel-917b42289" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/AjmalPatel16" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="mailto:patelajmal04@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-                <a href="#projects" class="btn">View My Work</a>
-            </div>
-        </section>
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <p class="hero-label">Data Analyst &amp; Data Scientist</p>
+      <h1>Mohammed<br><span class="accent">Ajmal Patel</span></h1>
+      <p class="hero-typing-line">I am <span id="article-js">a</span>&nbsp;<span id="typed-text" class="typed-text"></span><span class="typing-cursor"></span></p>
+      <p class="hero-desc">BSc Data Science &amp; Business Analytics student with a 9/10 CGPA. I turn complex datasets into clear decisions &mdash; through ML models, BI dashboards, and end-to-end analytical pipelines. Ready to make an impact wherever the data takes me.</p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary"><i class="fas fa-rocket"></i> View My Work</a>
+        <a href="#contact" class="btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://www.linkedin.com/in/mohammed-ajmal-patel-917b42289" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/AjmalPatel16" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:patelajmal04@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://ajmalpatel16.github.io/Portfolio/" target="_blank" aria-label="Portfolio"><i class="fas fa-globe"></i></a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/image.png" alt="Mohammed Ajmal Patel" onerror="this.parentElement.style.display='none'">
+    </div>
+  </div>
+</section>
 
-        <section id="about" class="content-section">
-            <h2>About Me</h2>
-            <div class="about-container">
-                <p>
-                    Data Science and Business Intelligence professional with hands-on experience in Python, SQL, Power BI, machine learning, and statistical analysis. Skilled in working across the complete data lifecycle, from data collection and cleaning to exploratory analysis, modeling, and visualization.
-                </p>
-                <p>
-                    Experienced in analyzing large-scale datasets (2M+ records), building predictive models, and developing interactive dashboards to support operational and business decision-making. Strong foundation in translating raw data into actionable insights with a focus on accuracy, scalability, and clarity.
-                </p>
-                <p>
-                    Proven ability to collaborate in team-driven environments, manage projects, and communicate insights effectively to both technical and non-technical stakeholders. Actively seeking opportunities to apply analytical and problem-solving skills in real-world data-driven roles.
-                </p>
-            </div>
-        </section>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="sec-eyebrow reveal">About Me</p>
+    <h2 class="sec-title reveal">Turning raw data into<br><span class="hi">clear decisions</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a Data Science and Business Analytics student at SDBI Patkar-Varde College, Mumbai, currently in my final year with a 9/10 CGPA. My work spans the full data lifecycle &mdash; from ingesting and cleaning messy datasets to building ML models and delivering dashboards that non-technical people can actually use.</p>
+        <p>During my internship at TNXN Solutions, I built a Python Streamlit application that reduced a 10&ndash;15 day manual data cleaning process down to just 1&ndash;2 days &mdash; an 85%+ reduction. That kind of practical, measurable impact is what drives me.</p>
+        <div class="about-pull">&ldquo;I don&rsquo;t just build models &mdash; I make sure the insights reach the people who need to act on them.&rdquo;</div>
+        <p>I&rsquo;ve worked on datasets ranging from 5,000 banking records to 2.3 million Aadhaar entries, and I&rsquo;m comfortable with every step in between: EDA, feature engineering, model training, evaluation, and Power BI dashboard delivery.</p>
+      </div>
+      <div class="stat-cards reveal">
+        <div class="stat-card"><div class="n">9/10</div><div class="l">Current CGPA</div></div>
+        <div class="stat-card"><div class="n">6mo</div><div class="l">Internship Experience</div></div>
+        <div class="stat-card"><div class="n">2.3M+</div><div class="l">Records Analysed</div></div>
+        <div class="stat-card"><div class="n">7+</div><div class="l">Personal Projects</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <section id="experience" class="content-section-alt">
-            <h2>Experience</h2>
-            <div class="experience-container">
-                <div class="experience-item">
-                    <h3>Data Analyst Intern</h3>
-                    <p class="experience-details"><strong>TNXN Solutions</strong> | Mumbai, India (Hybrid) | June 2025 – November 2025</p>
-                    <ul>
-                        <li>Built a Python-based Streamlit application enabling non-technical users to perform data cleaning and preprocessing, reducing manual effort.</li>
-                        <li>Conducted Exploratory Data Analysis (EDA) to identify trends, detect outliers, and handle missing values, significantly enhancing data quality.</li>
-                        <li>Leveraging advanced Excel functions (VLOOKUP, Pivot Tables, etc.) and Python libraries (Pandas, NumPy) for complex data manipulation and analysis.</li>
-                        <li>Collaborated with stakeholders to align analytical outputs with business requirements, workflow effeciency and reporting needs.</li>
-                    </ul>
-                </div>
-                 <div class="experience-item">
-                    <h3>Vice President, Avisa Gaming Club</h3>
-                    <p class="experience-details"><strong>Avisa Gaming Club, SDBI Patkar-Varde College</strong> | July 2024 – June 2025</p>
-                    <ul>
-                        <li>Served as Vice President of the college gaming club, managing student engagement and event planning initiatives.</li>
-                        <li>Co-organized inter-college gaming tournaments with active participation from multiple institutions.</li>
-                        <li>Fostered an inclusive and collaborative environment for club members.</li>
-                            </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>Co-Team Leader, Tech Jam 2.0</h3>
-                     <p class="experience-details"><strong>SDBI Patkar-Varde College Fest</strong> | Jan 2023</p>
-                    <ul>
-                        <li>Co-led planning and execution of a multi-college technology festival.</li>
-                        <li>Coordinated student volunteers across planning, promotion, and on-ground execution.</li>
-                        <li>Contributed to successful event delivery with strong student participation.</li>
-                    </ul>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Experience</p>
+    <h2 class="sec-title reveal">Where I&rsquo;ve <span class="hi">worked</span></h2>
+    <div class="exp-wrap">
 
-        <section id="projects" class="content-section">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>UIDAI Aadhaar Enrollment & Update Analytics</h3>
-                    <p>Cleaned and analyzed over 2 million plus Aadhaar enrollment demographic and biometric records to perform a lifecycle and risk based analysis identifying update pressure regional stress zones and operational workload patterns using Python and Power BI.</p>
-                    <div class="project-tags">
-                        <span>Python</span>
-                        <span>Power BI</span>
-                        <span>Data Analysis</span>
-                        <span>Operational Analytics</span>
-                        <span>Data Visualization</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>EV Market Analysis & Forecasting</h3>
-                    <p>Performed data collection, cleaning, and EDA on EV population data. Developed predictive models using Python to forecast registrations for the next six years.</p>
-                    <div class="project-tags"><span>Python</span><span>Data Analysis</span><span>Forecasting</span></div>
-                </div>
-                <div class="project-card">
-                    <h3>AI-Driven Target Marketing for Banking</h3>
-                    <p>Built an ML model (Logistic Regression, Random Forest) to predict potential loan-converting customers from historical bank data, improving targeting accuracy.</p>
-                    <div class="project-tags"><span>Machine Learning</span><span>Python</span><span>Random Forest</span></div>
-                </div>
-                <div class="project-card">
-                    <h3>Global University Success Analysis</h3>
-                    <p>Designed and built an interactive dashboard in Power BI to analyze global university performance metrics, helping stakeholders track progress and make informed decisions.</p>
-                    <div class="project-tags"><span>Power BI</span><span>Data Visualization</span><span>BI</span></div>
-                </div>
-                <div class="project-card">
-                    <h3>Time Series Analysis on Energy Consumption</h3>
-                    <p>Developed and evaluated models (Moving Average, Linear Regression, ARIMA) to forecast energy consumption, capturing seasonal patterns and trends.</p>
-                    <div class="project-tags"><span>Time Series</span><span>ARIMA</span><span>Python</span><span>Statistics</span></div>
-                </div>
-                <div class="project-card">
-                    <h3>Game Development Management System</h3>
-                    <p>Created a relational database schema and ER diagram to model the game development process, simulating real-world data scenarios using SQL.</p>
-                     <div class="project-tags"><span>DBMS</span><span>SQL</span><span>Database Design</span></div>
-                </div>
-                <div class="project-card">
-                    <h3>Coaching Classes Management System</h3>
-                    <p>Developed a comprehensive management system in Excel using VBA to automate student enrollment, attendance tracking, and performance analysis.</p>
-                    <div class="project-tags"><span>VBA</span><span>Excel</span><span>Automation</span></div>
-                </div>
-            </div>
-        </section>
-        
-        <section id="skills" class="content-section-alt">
-            <h2>Technical Skills</h2>
-            <p class="skills-intro">Hover over a card to see the technologies I use.</p>
-            <div class="skill-deck-grid">
-                
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <i class="fas fa-database"></i>
-                            <h3>Programming & Databases</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <ul>
-                                <li>Python</li>
-                                <li>SQL (PostgreSQL, MySQL)</li>
-                                <li>VBA</li>
-                                <li>MongoDB</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-date">June 2025 &ndash; November 2025</div>
+        <div class="exp-role">Data Analyst Intern</div>
+        <div class="exp-company">TNXN Solutions</div>
+        <div class="exp-loc">Mumbai, India &middot; Hybrid</div>
+        <ul class="exp-bullets">
+          <li>Built a Python Streamlit application to automate data cleaning for non-technical users, reducing manual processing time from 10&ndash;15 days to 1&ndash;2 days (85%+ reduction).</li>
+          <li>Extracted and standardised data from internal databases using preprocessing, validation, and deduplication pipelines.</li>
+          <li>Used advanced Excel (Pivot Tables, VLOOKUP, Power Query) to merge datasets, handle missing values, and standardise inconsistent formats.</li>
+          <li>Designed interactive Power BI dashboards to monitor KPIs and support data-driven decision-making for stakeholders.</li>
+        </ul>
+      </div>
 
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <i class="fab fa-python"></i>
-                            <h3>Python Libraries</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <ul>
-                                <li>Pandas & NumPy</li>
-                                <li>Scikit-Learn & Statsmodels</li>
-                                <li>Matplotlib & Seaborn</li>
-                                <li>Streamlit & Plotly</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-date">July 2024 &ndash; June 2025</div>
+        <div class="exp-role">Vice President</div>
+        <div class="exp-company">Avisa Gaming Club &mdash; SDBI Patkar-Varde College</div>
+        <div class="exp-loc">Mumbai</div>
+        <ul class="exp-bullets">
+          <li>Led event planning and student engagement initiatives for the college gaming club.</li>
+          <li>Co-organised inter-college gaming tournaments with participation from multiple institutions.</li>
+          <li>Fostered an inclusive and collaborative environment for club members.</li>
+        </ul>
+      </div>
 
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <i class="fas fa-robot"></i>
-                            <h3>Machine Learning</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <ul>
-                                <li>Supervised & Unsupervised Learning</li>
-                                <li>Ensemble Methods (Random Forest, XGBoost)</li>
-                                <li>Feature Engineering</li>
-                                <li>Time Series Analysis</li>
-                                <li>Predictive Modeling</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-date">January 2023</div>
+        <div class="exp-role">Co-Team Leader &mdash; Tech Jam 2.0</div>
+        <div class="exp-company">SDBI Patkar-Varde College Fest</div>
+        <div class="exp-loc">Mumbai</div>
+        <ul class="exp-bullets">
+          <li>Co-led planning and execution of a multi-college technology festival.</li>
+          <li>Coordinated volunteers across logistics, promotion, and on-ground execution.</li>
+        </ul>
+      </div>
 
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <i class="fas fa-chart-line"></i>
-                            <h3>Statistics</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <ul>
-                                <li>Hypothesis Testing & A/B Testing</li>
-                                <li>Probability & Distributions</li>
-                                <li>Descriptive & Inferential Stats</li>
-                                <li>Regression & ANOVA</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    </div>
+  </div>
+</section>
 
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <i class="fas fa-comment-dots"></i>
-                            <h3>Natural Language Processing</h3>
-                        </div>
-                        <div class="skill-card-back">
-                             <ul>
-                                <li>Sentiment Analysis & NER</li>
-                                <li>Text Summarization</li>
-                                <li>Stemming & Lemmatization</li>
-                                <li>Bag-of-Words & Word Embeddings</li>
-                                <li>Libraries: SpaCy & NLTK</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <i class="fas fa-chart-bar"></i>
-                            <h3>BI & Visualization Tools</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <ul>
-                                <li>Power BI</li>
-                                <li>Excel</li>
-                                <li>Exploratory Data Analysis (EDA)</li>
-                                <li>ETL Processes</li>
-                                <li>Data Cleaning & Preprocessing Pipelines</li>
-                                <!-- <li>Data Mining</li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Projects</p>
+    <h2 class="sec-title reveal">Things I&rsquo;ve <span class="hi">built</span></h2>
+    <div class="projects-grid">
 
-                <div class="skill-card">
-                    <div class="skill-card-inner">
-                        <div class="skill-card-front">
-                            <i class="fas fa-tools"></i>
-                            <h3>Developer & Data Tools</h3>
-                        </div>
-                        <div class="skill-card-back">
-                            <ul>
-                                <li>Git & GitHub</li>
-                                <li>Jupyter Notebooks</li>
-                                <li>VS Code</li>
-                                <li>Agile Methodologies</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+      <div class="proj-card reveal">
+        <div class="proj-num">01</div>
+        <h3>Aadhaar Enrollment &amp; Update Analytics</h3>
+        <p>Cleaned and analysed 2.3M+ Aadhaar enrollment, demographic, and biometric records. Engineered custom metrics (UER, BDR, Center Load Index) to identify high-pressure regions and built a Power BI dashboard with drill-downs.</p>
+        <div class="proj-tags"><span>Python</span><span>Power BI</span><span>EDA</span><span>Data Analysis</span></div>
+      </div>
 
-            </div>
-        </section>
+      <div class="proj-card reveal">
+        <div class="proj-num">02</div>
+        <h3>Loan Conversion Prediction Using ML</h3>
+        <p>Built Logistic Regression, Naive Bayes, and Random Forest models on 5,000 banking records. Applied SMOTE and GridSearchCV &mdash; achieved 97.6% accuracy. Identified top predictors for bank targeting strategy.</p>
+        <div class="proj-tags"><span>Python</span><span>Scikit-Learn</span><span>Random Forest</span><span>GridSearchCV</span></div>
+      </div>
 
-        <section id="education" class="content-section">
-            <div class="education-certification-container">
-                <div class="education-column">
-                    <h2>Education</h2>
-                    <div class="education-item">
-                        <h3>B.Sc. in Data Science and Business Analytics</h3>
-                        <p><strong>School of Data Science and Business Intelligence</strong>, Mumbai</p>
-                        <p><em>Aug 2023 – Present</em> | <strong>CGPA: 9/10</strong></p>
-                    </div>
-                </div>
-                <div class="certifications-column">
-                    <h2>Certifications</h2>
-                    <ul>
-                        <li><i class="fas fa-award"></i>Statistics for Data Science</li>
-                        <li><i class="fas fa-award"></i>Deloitte Australia - Data Analytics Job Simulation</li>
-                        <li><i class="fas fa-award"></i>Data Visualization using Power BI</li>
-                        <li><i class="fas fa-award"></i>TCS Forage Job Simulation – Data Visualization</li>
-                        <li><i class="fas fa-award"></i>Introduction to Natural Language Processing</li>
-                         <li><i class="fas fa-award"></i>Tata Crucible Campus Quiz - 2024</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+      <div class="proj-card reveal">
+        <div class="proj-num">03</div>
+        <h3>Time Series &mdash; Energy Consumption</h3>
+        <p>Analysed 588 monthly records (1973&ndash;2021). Compared Moving Average, Linear Regression, and ARIMA models. Linear Regression achieved best RMSE of 237.66 with 5-year forward forecasts and residual validation.</p>
+        <div class="proj-tags"><span>Python</span><span>ARIMA</span><span>Statsmodels</span><span>Forecasting</span></div>
+      </div>
 
-        <section id="contact" class="content-section-alt">
-            <h2>Get In Touch</h2>
-            <p class="contact-message">I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to reach out!</p>
-            <a href="mailto:patelajmal04@gmail.com" class="btn">Say Hello</a>
-            <div class="social-links-footer">
-                <a href="https://www.linkedin.com/in/mohammed-ajmal-patel-917b42289" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/AjmalPatel16" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-        </section>
-    </main>
+      <div class="proj-card reveal">
+        <div class="proj-num">04</div>
+        <h3>Credit Risk Scorecard (DigiHack)</h3>
+        <p>End-to-end credit scoring model on 3,000+ records. Used Information Value, Variable Clustering, and Random Forest for feature selection. Logistic Regression achieved Test AUC 0.68, KS 30.92 &mdash; top 3 deciles captured 58% of defaults.</p>
+        <div class="proj-tags"><span>Python</span><span>Logistic Regression</span><span>AUC/KS</span><span>Feature Engineering</span></div>
+      </div>
 
-    <footer>
-        <p>&copy; 2024 Mohammed Ajmal Patel. All rights reserved.</p>
-    </footer>
-    
-    <script>
-        // Hamburger menu toggle
-        const hamburger = document.getElementById('hamburger-menu');
-        const navLinks = document.getElementById('nav-links');
+      <div class="proj-card reveal">
+        <div class="proj-num">05</div>
+        <h3>EV Market Analysis &amp; Forecasting</h3>
+        <p>EDA on EV population data and predictive models forecasting registrations for the next 6 years, capturing adoption trends and growth patterns across regions.</p>
+        <div class="proj-tags"><span>Python</span><span>EDA</span><span>Forecasting</span><span>Data Analysis</span></div>
+      </div>
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+      <div class="proj-card reveal">
+        <div class="proj-num">06</div>
+        <h3>Global University Success Analysis</h3>
+        <p>Interactive Power BI dashboard benchmarking global university performance across regions and disciplines, enabling stakeholders to track institutional progress and make data-driven decisions.</p>
+        <div class="proj-tags"><span>Power BI</span><span>Data Visualisation</span><span>BI</span><span>Dashboard</span></div>
+      </div>
 
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+      <div class="proj-card reveal">
+        <div class="proj-num">07</div>
+        <h3>Game Development Management System</h3>
+        <p>Designed a normalised relational database schema and ER diagram to model the full game development lifecycle, simulating real-world data management scenarios using SQL.</p>
+        <div class="proj-tags"><span>SQL</span><span>DBMS</span><span>Database Design</span><span>ER Diagram</span></div>
+      </div>
 
-        // Typing effect script - WITH SMART "A/AN" LOGIC
-        document.addEventListener('DOMContentLoaded', function() {
-            // We've slightly rephrased these to be nouns
-            const phrases = [
-                'Data Analyst.',
-                'Collaborative Team Player.',
-                'Enthusiastic Lifelong Learner.',
-                'Explorer of Complex Data Puzzles.',
-                'Solver of Problems with Code & Logic.'
-            ];
+      <div class="proj-card reveal">
+        <div class="proj-num">08</div>
+        <h3>Coaching Classes Management System</h3>
+        <p>Excel VBA system automating student enrollment, attendance tracking, and performance analysis &mdash; eliminating manual processing entirely.</p>
+        <div class="proj-tags"><span>VBA</span><span>Excel</span><span>Automation</span><span>Dashboard</span></div>
+      </div>
 
-            var typed = new Typed('.typing-effect', {
-                strings: phrases,
-                typeSpeed: 70,
-                backSpeed: 50,
-                loop: true,
-                // This new function runs before each string is typed
-                preStringTyped: function(arrayPos, self) {
-                    const currentString = self.strings[arrayPos];
-                    const articleSpan = document.getElementById('article-js');
-                    const firstLetter = currentString.charAt(0).toLowerCase();
-                    
-                    if (['a', 'e', 'i', 'o', 'u'].includes(firstLetter)) {
-                        articleSpan.textContent = 'an';
-                    } else {
-                        articleSpan.textContent = 'a';
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Technical Skills</p>
+    <h2 class="sec-title reveal">My <span class="hi">toolkit</span></h2>
+    <div class="skills-layout">
+
+      <div class="skill-row reveal">
+        <div class="skill-row-label">
+          <div class="skill-row-icon"><i class="fas fa-code"></i></div>
+          <span class="skill-row-name">Languages &amp; Databases</span>
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">VBA</span>
+          <span class="skill-pill">MySQL</span>
+          <span class="skill-pill">PostgreSQL</span>
+          <span class="skill-pill">SQL Server</span>
+          <span class="skill-pill">MongoDB</span>
+        </div>
+      </div>
+
+      <div class="skill-row reveal">
+        <div class="skill-row-label">
+          <div class="skill-row-icon"><i class="fab fa-python"></i></div>
+          <span class="skill-row-name">Python Libraries</span>
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill">Pandas</span>
+          <span class="skill-pill">NumPy</span>
+          <span class="skill-pill">Scikit-Learn</span>
+          <span class="skill-pill">Statsmodels</span>
+          <span class="skill-pill">Matplotlib</span>
+          <span class="skill-pill">Seaborn</span>
+          <span class="skill-pill">Streamlit</span>
+          <span class="skill-pill">Plotly</span>
+        </div>
+      </div>
+
+      <div class="skill-row reveal">
+        <div class="skill-row-label">
+          <div class="skill-row-icon"><i class="fas fa-robot"></i></div>
+          <span class="skill-row-name">Machine Learning</span>
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill">Supervised Learning</span>
+          <span class="skill-pill">Unsupervised Learning</span>
+          <span class="skill-pill">Random Forest</span>
+          <span class="skill-pill">Logistic Regression</span>
+          <span class="skill-pill">GridSearchCV</span>
+          <span class="skill-pill">SMOTE</span>
+          <span class="skill-pill">Time Series (ARIMA)</span>
+          <span class="skill-pill">Feature Engineering</span>
+        </div>
+      </div>
+
+      <div class="skill-row reveal">
+        <div class="skill-row-label">
+          <div class="skill-row-icon"><i class="fas fa-chart-line"></i></div>
+          <span class="skill-row-name">Statistics</span>
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill">Hypothesis Testing</span>
+          <span class="skill-pill">A/B Testing</span>
+          <span class="skill-pill">Probability &amp; Distributions</span>
+          <span class="skill-pill">Descriptive &amp; Inferential</span>
+          <span class="skill-pill">Regression &amp; ANOVA</span>
+        </div>
+      </div>
+
+      <div class="skill-row reveal">
+        <div class="skill-row-label">
+          <div class="skill-row-icon"><i class="fas fa-comment-dots"></i></div>
+          <span class="skill-row-name">NLP</span>
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill">NLTK</span>
+          <span class="skill-pill">spaCy</span>
+          <span class="skill-pill">TF-IDF</span>
+          <span class="skill-pill">Tokenization</span>
+          <span class="skill-pill">Lemmatization</span>
+          <span class="skill-pill">Bag of Words</span>
+        </div>
+      </div>
+
+      <div class="skill-row reveal">
+        <div class="skill-row-label">
+          <div class="skill-row-icon"><i class="fas fa-chart-bar"></i></div>
+          <span class="skill-row-name">BI &amp; Visualisation</span>
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Excel (Advanced)</span>
+          <span class="skill-pill">Pivot Tables</span>
+          <span class="skill-pill">VLOOKUP</span>
+          <span class="skill-pill">Power Query</span>
+          <span class="skill-pill">EDA</span>
+          <span class="skill-pill">ETL</span>
+        </div>
+      </div>
+
+      <div class="skill-row reveal">
+        <div class="skill-row-label">
+          <div class="skill-row-icon"><i class="fas fa-tools"></i></div>
+          <span class="skill-row-name">Developer Tools</span>
+        </div>
+        <div class="skill-pills">
+          <span class="skill-pill">Git</span>
+          <span class="skill-pill">GitHub</span>
+          <span class="skill-pill">Jupyter Notebooks</span>
+          <span class="skill-pill">VS Code</span>
+          <span class="skill-pill">Agile</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+  <div class="container">
+    <p class="sec-eyebrow reveal">Background</p>
+    <h2 class="sec-title reveal">Education &amp; <span class="hi">Certifications</span></h2>
+    <div class="edu-cert-grid">
+      <div class="reveal">
+        <div class="edu-card">
+          <div class="edu-degree">B.Sc. in Data Science &amp; Business Analytics</div>
+          <div class="edu-school">School of Data Science &amp; Business Intelligence, SDBI Patkar-Varde College</div>
+          <div class="edu-meta">Mumbai, Maharashtra &middot; Aug 2023 &ndash; Present</div>
+          <div class="edu-cgpa">
+            <span class="n">9/10</span>
+            <span class="l">CGPA &middot; Aggregate Sem 1&ndash;5</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <ul class="cert-list">
+          <li class="cert-item"><i class="fas fa-award"></i> Statistics for Data Science</li>
+          <li class="cert-item"><i class="fas fa-award"></i> Data Visualization using Power BI</li>
+          <li class="cert-item"><i class="fas fa-award"></i> TCS Forage Job Simulation &ndash; Data Visualization</li>
+          <li class="cert-item"><i class="fas fa-award"></i> Deloitte Australia &ndash; Data Analytics Job Simulation</li>
+          <li class="cert-item"><i class="fas fa-award"></i> Introduction to Natural Language Processing</li>
+          <li class="cert-item"><i class="fas fa-award"></i> Tata Crucible Campus Quiz &ndash; 2024</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="contact-wrap">
+      <p class="sec-eyebrow reveal">Contact</p>
+      <h2 class="sec-title reveal">Let&rsquo;s work <span class="hi">together</span></h2>
+      <p class="contact-desc reveal">Your data has a story. I help tell it. Open to data analyst, business analyst, and data science roles &mdash; in India or anywhere across the globe.</p>
+
+      <div class="contact-cards reveal">
+        <a href="mailto:patelajmal04@gmail.com" class="contact-card">
+          <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-card-body">
+            <strong>Email</strong>
+            <span>patelajmal04@gmail.com</span>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/mohammed-ajmal-patel-917b42289" target="_blank" class="contact-card">
+          <div class="contact-card-icon"><i class="fab fa-linkedin-in"></i></div>
+          <div class="contact-card-body">
+            <strong>LinkedIn</strong>
+            <span>mohammed-ajmal-patel</span>
+          </div>
+        </a>
+        <a href="https://github.com/AjmalPatel16" target="_blank" class="contact-card">
+          <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+          <div class="contact-card-body">
+            <strong>GitHub</strong>
+            <span>AjmalPatel16</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="contact-cta reveal">
+        <a href="mailto:patelajmal04@gmail.com" class="btn-primary"><i class="fas fa-paper-plane"></i> Say Hello</a>
+        <a href="https://www.linkedin.com/in/mohammed-ajmal-patel-917b42289" target="_blank" class="btn-outline"><i class="fab fa-linkedin-in"></i> Connect on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Mohammed Ajmal Patel. All rights reserved.</p>
+  <div class="foot-links">
+    <a href="#home">Top</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+/* Navbar */
+var nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+/* Hamburger */
+var hamburger = document.getElementById('hamburger');
+var navLinks  = document.getElementById('nav-links');
+hamburger.addEventListener('click', function() {
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', function() { navLinks.classList.remove('open'); });
+});
+
+/* Scroll reveal */
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) {
+      setTimeout(function() { e.target.classList.add('visible'); }, i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
+
+/* Typing effect */
+(function() {
+  var phrases = [
+    'Data Analyst.',
+    'Business Analyst.',
+    'ML Enthusiast.',
+    'BI Developer.',
+    'Problem Solver.',
+    'Data Scientist.'
+  ];
+  var vowels    = ['a','e','i','o','u'];
+  var textEl    = document.getElementById('typed-text');
+  var articleEl = document.getElementById('article-js');
+  var pIdx = 0, cIdx = 0, deleting = false;
+
+  function setArticle(str) {
+    articleEl.textContent = (vowels.indexOf(str[0].toLowerCase()) !== -1) ? 'an' : 'a';
+  }
+
+  function tick() {
+    var current = phrases[pIdx];
+    if (!deleting) {
+      cIdx++;
+      textEl.textContent = current.slice(0, cIdx);
+      setArticle(current);
+      if (cIdx === current.length) {
+        setTimeout(function() { deleting = true; tick(); }, 1800);
+        return;
+      }
+    } else {
+      cIdx--;
+      textEl.textContent = current.slice(0, cIdx);
+      if (cIdx === 0) {
+        deleting = false;
+        pIdx = (pIdx + 1) % phrases.length;
+        setTimeout(tick, 400);
+        return;
+      }
+    }
+    setTimeout(tick, deleting ? 35 : 70);
+  }
+
+  setTimeout(tick, 900);
+})();
+</script>
 </body>
 </html>
